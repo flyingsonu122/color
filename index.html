@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>color picker</title>
+        <style>
+            body {
+                color: white;
+                font-size: 20px;
+            }
+
+            #main {
+                border: 2px solid red;
+                padding: 12px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                color: black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="main">
+            <label>Pick a color
+                <input type="color" oninput="changeColor();" id="color">
+            </label>
+            <p id="val"></p>
+        </div>
+        <script>
+            function changeColor() {
+                const bgClr = document.getElementById('color').value;
+                document.querySelector('body').style.backgroundColor = bgClr;
+                document.getElementById('val').innerText = bgClr;
+                if (bgClr === "#ffffff") {
+                    document.querySelector('body').style.color = "#000000";
+                } else {
+                    document.querySelector('body').style.color = "#ffffff";
+                }
+            }
+            changeColor();
+        </script>
+    </body>
+
+</html>
